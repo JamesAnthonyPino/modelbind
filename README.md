@@ -7,6 +7,9 @@ automatically updates the model if your form changes, so that all you have
 to do is allow the user to update the form, then do something with the modified model.
 It's simple, effective, and easy to use.
 
+### Download
+Just download the minfied version (modelbind.jquuery.min.js) from this Github page. No other files are required.
+
 ### Example
 Below is a simple example of a model being bound to a form using the attribute
 "data-field-name". Once you update any of the form fields, the model is updated.
@@ -33,9 +36,9 @@ $(function(){
   };
 
   $("#myForm").modelbind({
-  model: myModel,
-  bindAttribute: "data-field-name"
-});
+    model: myModel,
+    bindAttribute: "data-field-name"
+  });
 });
 ```
 
