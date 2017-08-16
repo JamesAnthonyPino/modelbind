@@ -8,15 +8,12 @@
 
     var MODEL = config.model;
 
-    var AUTO_UPDATE = config.autoUpdate;
-
-    $.extend(CONFIG, config);
+    CONFIG = $.extend({}, CONFIG, config);
 
     this.init = function() {
       var self = this;
       this.updateForm();
-
-      if(AUTO_UPDATE) {
+      if(CONFIG.autoUpdate) {
         $elems = this.getElems();
 
         // Add listeners to all form fields
@@ -30,7 +27,9 @@
             v = a;
             $("["+CONFIG.bindAttribute+"="+k+"]").val(a);
           }});
-          Object.defineProperty(MODEL, k, {get: function(a){ return v;  }});
+          Object.defineProperty(MODEL, k, {get: function(a){
+			return v;  
+		  }});
         });
       }
 
@@ -62,7 +61,6 @@
   }
 
   $.fn.modelbind = function() {
-
     var instance = $(this).data("instance");
 
     if (typeof instance === "undefined") {
